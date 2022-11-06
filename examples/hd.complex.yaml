@@ -1,0 +1,21 @@
+tags:
+  capitalize: true
+  levels:
+    - tags: [security]
+      name: Security
+      children:
+        - tags: password-cracking
+          name: Password attacks
+        - tags: "#(cheatsheet|resources)"
+          name: "Cheatsheets & resources"
+        - tags: learn
+          name: Learn 
+        - MISC:
+          - tags: draft
+            name: Draft
+          - tags: todo
+            name: TODO
+    - programming:
+      - python
+      - tags: [typescript, javascript, js, ts]
+        name: JavaScript

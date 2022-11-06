@@ -3,6 +3,18 @@
 A wrapper around the hedgedoc cli binary to format the history based on the
 given structure to create a reference page to other created notes.
 
+## Why?
+
+HedgeDoc works like Google Docs. You create a note and it generates a random ID,
+but the catch is that it's only viewable in your own history, the problem is that
+you can find your notes, but others can't, but this is only a problem if you're
+collaborating and all of the notes you create need to be shared, it gets tiresome
+pasting all of the links in one chat.
+
+The problem is solved by just having the history in one note and other people can
+just keep track of that. This should be used by a single user that opens other
+links to have them in the history, otherwise this won't solve the problem.
+
 ## TODO
 
 - [ ] Fix `upload-reference` command
@@ -52,12 +64,48 @@ HD_PASS=<PASS>
 
 - This will be used to login using the hedgedoc cli.
 
+## Usage
+
+```bash
+# Check history
+hdd history
+
+# Generate the markdown
+hdd md
+# Show the markdown, custom output and only pinned notes
+hdd md --show --output ref.md --only-pinned
+
+# Preview structure
+hdd structure
+
+# Upload the reference to HedgeDoc (not working now)
+hdd upload-reference
+
+# Enable TRACE logging
+hdd --debug --log-level TRACE history
+
+# Provide custom password 
+hdd --username user --password pass history
+
+```
+
 ## Reference Structure
 
 By default if no sections are configured, everything is thrown under the "Uncategorized" section.
 
 To define a structure, edit `hd.structure.yaml` or create a different file (but you would have to
 specify the path every time)
+
+To preview the structure run the following:
+
+```bash
+# With default config
+hdd structure
+
+# Custom config
+hdd structure --structure path/to/structure.yaml
+```
+
 
 ### Structure Examples
 
